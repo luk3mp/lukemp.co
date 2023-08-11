@@ -60,9 +60,9 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
             <img
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="https://w7.pngwing.com/pngs/823/304/png-transparent-fulham-fc-hd-logo-thumbnail.png"
-              alt="FFC Logo"
+              className="h-14 w-14 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+              src="/logo-lmp.svg"
+              alt="LMP logo"
             />
           </div>
         </footer>
