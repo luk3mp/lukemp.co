@@ -4,6 +4,11 @@ export default {
   type: "document",
   fields: [
     {
+      name: "sortOrder",
+      title: "Sort Order",
+      type: "number",
+    },
+    {
       name: "jobTitle",
       title: "JobTitle",
       type: "string",

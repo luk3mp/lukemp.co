@@ -6,7 +6,7 @@ const social = {
     {
       name: "title",
       title: "Title",
-      description: "Title of skill",
+      description: "Title of social",
       type: "string",
     },
     {
