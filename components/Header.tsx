@@ -30,9 +30,9 @@ export default function Header({ socials }: Props) {
         {/* Social icons */}
         {socials.map((social) => (
           <SocialIcon
-            key={social.name}
+            key={social.url}
             url={social.url}
-            fgColor="gray"
+            fgColor="white"
             bgColor="transparent"
           />
         ))}
@@ -56,11 +56,11 @@ export default function Header({ socials }: Props) {
         <SocialIcon
           className="cursor-pointer"
           network="email"
-          fgColor="gray"
+          fgColor="white"
           bgColor="transparent"
         />
         <Link href="#contact">
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+          <p className="uppercase hidden md:inline-flex text-sm text-white-400">
             Reach Out
           </p>
         </Link>

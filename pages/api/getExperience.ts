@@ -17,7 +17,7 @@ export default async function handler(
   const experiences: Experience[] = await sanityClient.fetch(query);
 
   // Log the fetched experiences to the console to inspect the order
-  console.log("Fetched Experiences:", experiences);
+  // console.log("Fetched Experiences:", experiences);
 
   // Send the experiences back in the response
   res.status(200).json({ experiences });
