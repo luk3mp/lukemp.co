@@ -4,7 +4,6 @@ import { BlogPost } from "../../typings";
 import { groq } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
-import Header from "../../components/Header";
 
 type Props = {
   blogPost: BlogPost;
