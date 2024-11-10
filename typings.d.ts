@@ -66,3 +66,18 @@ export interface Social extends SanityBody {
   name: string;
   url: string;
 }
+
+export interface BlogPost {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  publishedAt: string;
+  mainImage: Image;
+  author: string;
+  authorImage?: Image; // Optional if you want to display author images
+  excerpt: string;
+  content: any; // Sanity's Portable Text for rich content
+  category: string; // Add this line for category
+}

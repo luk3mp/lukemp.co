@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function Hero({ pageInfo }: Props) {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: [
       `Hi, I'm ${pageInfo?.name}`,
       "I'm a Product Manager",
@@ -39,7 +39,7 @@ export default function Hero({ pageInfo }: Props) {
 
         <div className="pt-5">
           <Link href="#about">
-            <button className="heroButton">About</button>
+            <button className="heroButton hover:underline">About</button>
           </Link>
           <Link href="#workexperience">
             <button className="heroButton">Experience</button>
@@ -49,6 +49,10 @@ export default function Hero({ pageInfo }: Props) {
           </Link>
           <Link href="#projects">
             <button className="heroButton">Projects</button>
+          </Link>
+          {/* Add Blog Posts button */}
+          <Link href="/posts">
+            <button className="heroButton">Blog</button>
           </Link>
         </div>
       </div>
