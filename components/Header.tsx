@@ -1,68 +1,41 @@
 import React from "react";
-import { SocialIcon } from "react-social-icons";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Social } from "../typings";
+import { SocialIcon } from "react-social-icons"; // Using SocialIcon from react-social-icons
 
-type Props = {
-  socials: Social[];
-};
-
-export default function Header({ socials }: Props) {
+export default function Header() {
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
-      {/* Homepage Icon with Grayscale Hover Effect */}
-      <motion.div
-        initial={{ x: -500, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-        className="flex flex-row items-center"
-      >
-        <Link href="/">
-          <img
-            src="/logo-lmp.svg" // Using your existing logo
-            alt="Home"
-            className="h-10 w-10 cursor-pointer rounded-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out"
-          />
-        </Link>
-      </motion.div>
+    <header className="sticky top-0 z-50 bg-[rgb(36,36,36)] p-5 flex items-center justify-between max-w-7xl mx-auto">
+      {/* Left-aligned Logo */}
+      <Link href="/">
+        <img
+          src="/logo-lmp.svg" // Replace with your logo path
+          alt="Home"
+          className="h-10 w-10 cursor-pointer rounded-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out"
+        />
+      </Link>
 
-      {/* Social Icons */}
-      <motion.div
-        initial={{ x: 500, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-        className="flex flex-row items-center"
-      >
-        {socials.map((social) => (
-          <SocialIcon
-            key={social.url}
-            url={social.url}
-            fgColor="white"
-            bgColor="transparent"
-          />
+      {/* Centered Navigation Links */}
+      <nav className="flex space-x-6">
+        {["Home", "Projects", "Resume", "Blog"].map((item) => (
+          <Link
+            key={item}
+            href={`/${item.toLowerCase()}`}
+            className="text-gray-300 hover:underline hover:font-bold transition-all duration-200 ease-in-out"
+          >
+            {item}
+          </Link>
         ))}
-      </motion.div>
+      </nav>
 
-      {/* Reach Out Button */}
-      <motion.div
-        initial={{ x: 500, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-        className="flex flex-row items-center text-gray-300 cursor-pointer"
-      >
+      {/* Right-aligned Mail Icon */}
+      <Link href="#contact">
         <SocialIcon
-          className="cursor-pointer"
           network="email"
+          className="h-8 w-8 cursor-pointer text-gray-300 hover:text-white transition-colors duration-200 ease-in-out"
           fgColor="white"
           bgColor="transparent"
         />
-        <Link href="#contact">
-          <p className="uppercase hidden md:inline-flex text-sm text-white-400">
-            Reach Out
-          </p>
-        </Link>
-      </motion.div>
+      </Link>
     </header>
   );
 }
