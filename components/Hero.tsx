@@ -1,7 +1,6 @@
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
-import Link from "next/link";
 import { PageInfo } from "../typings";
 import { urlFor } from "../sanity";
 
@@ -21,10 +20,15 @@ export default function Hero({ pageInfo }: Props) {
   });
 
   return (
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="relative h-screen flex flex-col space-y-6 items-center justify-center text-center overflow-hidden bg-white">
+      {/* Diagonal Line Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-[40%] w-[140%] h-[500px] bg-[#F7AB0A]/10 -skew-y-12 transform -translate-x-1/4" />
+      </div>
+
       <BackgroundCircles />
       <img
-        className="relative rounded-full h-32 w-32 mx-auto object-cover"
+        className="relative rounded-full h-24 w-24 mx-auto object-cover z-10"
         src={urlFor(pageInfo?.heroImage).url()}
         alt="Me"
       />
@@ -32,29 +36,10 @@ export default function Hero({ pageInfo }: Props) {
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
           {pageInfo?.role}
         </h2>
-        <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+        <h1 className="text-4xl lg:text-4xl font-semibold px-10">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="red" />
         </h1>
-
-        <div className="pt-5">
-          <Link href="#about">
-            <button className="heroButton hover:underline">About</button>
-          </Link>
-          <Link href="#workexperience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
-          {/* Add Blog Posts button */}
-          <Link href="/posts">
-            <button className="heroButton">Blog</button>
-          </Link>
-        </div>
       </div>
     </div>
   );

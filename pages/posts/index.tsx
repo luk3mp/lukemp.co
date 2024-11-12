@@ -14,9 +14,8 @@ type Props = {
 
 const BlogHomePage = ({ blogPosts, socials }: Props) => {
   return (
-    <div className="bg-white text-black min-h-screen overflow-y-scroll">
-      {/* Header */}
-      <Header socials={socials} />
+    <div className="bg-white text-gray-800 min-h-screen overflow-y-scroll">
+      <Header />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -24,14 +23,12 @@ const BlogHomePage = ({ blogPosts, socials }: Props) => {
         transition={{ duration: 1.5 }}
         className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8"
       >
-        {/* Page Title */}
         <h1 className="text-4xl font-bold text-center mb-8">Blog</h1>
         <p className="text-center text-gray-600 mb-16">
           I write about Technology, Business, Fitness, Projects, and other
           Ideas.
         </p>
 
-        {/* Blog Post Cards */}
         <div className="space-y-12">
           {blogPosts.map((post) => (
             <Link
@@ -44,7 +41,6 @@ const BlogHomePage = ({ blogPosts, socials }: Props) => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Post Image */}
                 {post.mainImage && (
                   <motion.img
                     src={urlFor(post.mainImage).width(400).url()}
@@ -56,14 +52,11 @@ const BlogHomePage = ({ blogPosts, socials }: Props) => {
                   />
                 )}
 
-                {/* Post Info */}
                 <div className="md:ml-6 flex-1">
-                  {/* Title */}
                   <h2 className="text-2xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
                     {post.title}
                   </h2>
 
-                  {/* Meta */}
                   <div className="flex items-center space-x-2 mt-3">
                     <span className="text-sm text-gray-600">
                       {new Date(post.publishedAt).toLocaleDateString("en-US", {
@@ -78,12 +71,10 @@ const BlogHomePage = ({ blogPosts, socials }: Props) => {
                     </span>
                   </div>
 
-                  {/* Excerpt */}
                   <p className="mt-4 text-gray-600 line-clamp-3">
                     {post.excerpt}
                   </p>
 
-                  {/* Label / Tag */}
                   <div className="mt-4">
                     <span className="inline-block bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-medium">
                       {post.category || "General"}

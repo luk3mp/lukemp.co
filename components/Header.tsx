@@ -1,14 +1,20 @@
 import React from "react";
 import Link from "next/link";
-import { SocialIcon } from "react-social-icons"; // Using SocialIcon from react-social-icons
+import dynamic from "next/dynamic";
+
+// Dynamically import SocialIcon with SSR disabled
+const SocialIcon = dynamic(
+  () => import("react-social-icons").then((mod) => mod.SocialIcon),
+  { ssr: false }
+);
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-[rgb(36,36,36)] p-5 flex items-center justify-between max-w-7xl mx-auto">
+    <header className="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-lg border-b border-gray-200 p-5 flex items-center justify-between w-full mx-auto">
       {/* Left-aligned Logo */}
-      <Link href="/">
+      <Link href="/#hero">
         <img
-          src="/logo-lmp.svg" // Replace with your logo path
+          src="/logo-lmp.svg"
           alt="Home"
           className="h-10 w-10 cursor-pointer rounded-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out"
         />
@@ -16,25 +22,42 @@ export default function Header() {
 
       {/* Centered Navigation Links */}
       <nav className="flex space-x-6">
-        {["Home", "Projects", "Resume", "Blog"].map((item) => (
-          <Link
-            key={item}
-            href={`/${item.toLowerCase()}`}
-            className="text-gray-300 hover:underline hover:font-bold transition-all duration-200 ease-in-out"
-          >
-            {item}
-          </Link>
-        ))}
+        <Link
+          href="/#hero"
+          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+        >
+          Home
+        </Link>
+        <Link
+          href="/#projects"
+          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+        >
+          Projects
+        </Link>
+        <Link
+          href="/resume"
+          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+        >
+          Resume
+        </Link>
+        <Link
+          href="/posts"
+          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+        >
+          Blog
+        </Link>
       </nav>
 
-      {/* Right-aligned Mail Icon */}
+      {/* Right-aligned Mail Icon with Orange Hover Effect */}
       <Link href="#contact">
-        <SocialIcon
-          network="email"
-          className="h-8 w-8 cursor-pointer text-gray-300 hover:text-white transition-colors duration-200 ease-in-out"
-          fgColor="white"
-          bgColor="transparent"
-        />
+        <div className="hover:text-[#F7AB0A] transition-colors duration-300 ease-in-out">
+          <SocialIcon
+            network="email"
+            className="h-8 w-8 cursor-pointer"
+            fgColor="currentColor" // Uses the current text color, allowing hover effect
+            bgColor="transparent"
+          />
+        </div>
       </Link>
     </header>
   );
