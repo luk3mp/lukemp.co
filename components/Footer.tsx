@@ -82,7 +82,8 @@ const Footer = () => {
 
       {/* Footer Bottom Text */}
       <div className="text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Luke Mathews-Patience&#39;s Portfolio. All
+        {/* eslint-disable-next-line react/no-unescaped-entities */}©{" "}
+        {new Date().getFullYear()} Luke Mathews-Patience&#39;s Portfolio. All
         Rights Reserved.
       </div>
     </footer>
