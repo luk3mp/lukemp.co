@@ -82,7 +82,8 @@ const Footer = () => {
 
       {/* Footer Bottom Text */}
       <div className="text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Luke&apos;s Portfolio. All Rights Reserved.
+        © {new Date().getFullYear()} Luke Mathews-Patience Portfolio. All Rights
+        Reserved.
       </div>
     </footer>
   );
