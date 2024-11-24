@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -7,11 +8,14 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Column 1: Brand & Description */}
         <div className="space-y-4 text-left">
-          <img
-            src="/logo-lmp.svg"
-            alt="Logo"
-            className="h-10 w-10 object-cover"
-          />
+          <div className="relative h-10 w-10">
+            <Image
+              src="/logo-lmp.svg"
+              alt="Logo"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
           <p className="text-gray-400 text-sm">
             Showcasing my work, projects, and blogs.
           </p>
@@ -42,11 +46,14 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="flex items-center justify-end text-gray-400 hover:text-white"
           >
-            <img
-              src="/x-social-media-white-icon.svg"
-              alt="X"
-              className="h-6 w-6 mr-2"
-            />
+            <div className="relative h-6 w-6 mr-2">
+              <Image
+                src="/x-social-media-white-icon.svg"
+                alt="X"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
             luk3mp
           </a>
           <a
@@ -55,11 +62,14 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="flex items-center justify-end text-gray-400 hover:text-white"
           >
-            <img
-              src="/github-white-icon.svg"
-              alt="GitHub"
-              className="h-6 w-6 mr-2"
-            />
+            <div className="relative h-6 w-6 mr-2">
+              <Image
+                src="/github-white-icon.svg"
+                alt="GitHub"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
             luk3mp
           </a>
         </div>
@@ -72,7 +82,7 @@ const Footer = () => {
 
       {/* Footer Bottom Text */}
       <div className="text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Luke's Portfolio. All Rights Reserved.
+        © {new Date().getFullYear()} Luke&apos;s Portfolio. All Rights Reserved.
       </div>
     </footer>
   );

@@ -4,6 +4,9 @@ import { BlogPost } from "../../typings";
 import { groq } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 type Props = {
   blogPost: BlogPost;
@@ -13,11 +16,15 @@ type Props = {
 const components = {
   types: {
     image: ({ value }: { value: any }) => (
-      <img
-        src={urlFor(value).url()}
-        alt="Blog post content image"
-        className="my-5 w-full object-cover rounded-lg"
-      />
+      <div className="relative w-full h-64 my-5">
+        <Image
+          src={urlFor(value).url()}
+          alt="Blog post content image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
     ),
   },
   list: {
@@ -66,31 +73,38 @@ const components = {
 
 const BlogPostPage = ({ blogPost }: Props) => {
   return (
-    <motion.article
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="max-w-4xl mx-auto p-5"
-    >
-      <h1 className="text-5xl font-bold text-center mb-10">{blogPost.title}</h1>
-      <p className="text-gray-400 text-center mb-10">
-        {new Date(blogPost.publishedAt).toDateString()} by {blogPost.author}
-      </p>
-      {blogPost.mainImage && (
-        <motion.img
-          src={urlFor(blogPost.mainImage).url()}
-          alt={blogPost.title}
-          className="w-full object-cover rounded-lg shadow-lg mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-        />
-      )}
-      <div className="prose prose-lg mx-auto">
-        {/* Render Portable Text with Custom Components */}
-        <PortableText value={blogPost.content} components={components} />
-      </div>
-    </motion.article>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <motion.article
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="flex-grow max-w-4xl mx-auto p-5"
+      >
+        <h1 className="text-5xl font-bold text-center mb-10">
+          {blogPost.title}
+        </h1>
+        <p className="text-gray-400 text-center mb-10">
+          {new Date(blogPost.publishedAt).toDateString()} by {blogPost.author}
+        </p>
+        {blogPost.mainImage && (
+          <div className="relative w-full h-80 mb-10">
+            <Image
+              src={urlFor(blogPost.mainImage).url()}
+              alt={blogPost.title}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        )}
+        <div className="prose prose-lg mx-auto">
+          {/* Render Portable Text with Custom Components */}
+          <PortableText value={blogPost.content} components={components} />
+        </div>
+      </motion.article>
+      <Footer />
+    </div>
   );
 };
 

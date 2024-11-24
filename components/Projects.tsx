@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
+import Image from "next/image";
 
 type Props = {
   projects: Project[];
@@ -25,16 +26,21 @@ function Projects({ projects }: Props) {
             key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
           >
-            <motion.img
+            <motion.div
               initial={{ y: -300, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              /* Added the height here as the images were too large on screen */
-              className="h-64"
-              src={urlFor(project?.image).url()}
-              alt="Players"
-            />
+              className="relative h-64 w-64" // Ensure height and width are set for Image
+            >
+              <Image
+                src={urlFor(project?.image).url()}
+                alt={project?.title || "Project image"}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+            </motion.div>
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]">
@@ -44,12 +50,14 @@ function Projects({ projects }: Props) {
               </h4>
               <div className="flex items-center space-x-2 justify-center">
                 {project?.technologies.map((technology) => (
-                  <img
-                    className="h-10 w-10"
-                    key={technology._id}
-                    src={urlFor(technology.image).url()}
-                    alt={technology.title}
-                  />
+                  <div key={technology._id} className="relative h-10 w-10">
+                    <Image
+                      src={urlFor(technology.image).url()}
+                      alt={technology.title || "Technology logo"}
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
                 ))}
               </div>
               <p className="text-lg text-center">{project?.summary}</p>
