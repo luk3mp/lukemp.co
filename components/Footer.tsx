@@ -39,7 +39,7 @@ const Footer = () => {
 
         {/* Column 3: Social Icons & Contact */}
         <div className="space-y-4 text-right">
-          <h4 className="text-lg font-semibold mb-4">Let's Connect</h4>
+          <h4 className="text-lg font-semibold mb-4">Lets Connect</h4>
           <a
             href="https://x.com/luk3mp"
             target="_blank"
@@ -74,15 +74,13 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
       {/* Separator Line */}
       <div className="flex justify-center my-6">
         <div className="w-[60%] border-t border-gray-600"></div>
       </div>
-
       {/* Footer Bottom Text */}
       <div className="text-center text-gray-400 text-sm">
-        {/* eslint-disable-next-line react/no-unescaped-entities */}©{" "}
+        {/* eslint-disable-next-line react/no-unescaped-entities */}©{}
         {new Date().getFullYear()} Luke Mathews-Patience&#39;s Portfolio. All
         Rights Reserved.
       </div>
