@@ -7,6 +7,7 @@ import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
+import Footer from "../components/Footer";
 import Link from "next/link";
 import { PageInfo, Experience, Project, Skill, Social } from "../typings";
 import { fetchExperiences } from "../utils/fetchExperiences";
@@ -32,6 +33,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 
       <Header />
 
+      {/* Snapping Sections */}
       <section id="hero" className="snap-center">
         <Hero pageInfo={pageInfo} />
       </section>
@@ -40,33 +42,26 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
         <About pageInfo={pageInfo} />
       </section>
 
-      <section id="workexperience" className="snap-center">
+      {/* <section id="workexperience" className="snap-center">
         <WorkExperience experiences={experiences} />
-      </section>
+      </section> */}
 
-      <section id="skills" className="snap-start">
+      {/* <section id="skills" className="snap-start">
         <Skills skills={skills} />
-      </section>
+      </section> */}
 
       <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
 
-      <section id="contact" className="snap-start">
+      {/* <section id="contact" className="snap-start">
         <ContactMe />
-      </section>
+      </section> */}
 
-      <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer">
-          <div className="flex items-center justify-center">
-            <img
-              className="h-14 w-14 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="/logo-lmp.svg"
-              alt="LMP logo"
-            />
-          </div>
-        </footer>
-      </Link>
+      {/* Footer Section */}
+      <section id="footer" className="snap-start">
+        <Footer />
+      </section>
     </div>
   );
 };

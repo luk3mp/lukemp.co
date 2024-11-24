@@ -10,7 +10,7 @@ const SocialIcon = dynamic(
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-lg border-b border-gray-200 p-5 flex items-center justify-between w-full mx-auto">
+    <header className="sticky top-0 z-50 bg-white bg-opacity-50 backdrop-blur border-b border-gray-200 p-5 flex items-center justify-between w-full mx-auto">
       {/* Left-aligned Logo */}
       <Link href="/#hero">
         <img
@@ -24,25 +24,25 @@ export default function Header() {
       <nav className="flex space-x-6">
         <Link
           href="/#hero"
-          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+          className="text-gray-700 hover:text-[#F7AB0A] hover:underline transition-all duration-200 ease-in-out"
         >
           Home
         </Link>
         <Link
           href="/#projects"
-          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+          className="text-gray-700 hover:text-[#F7AB0A] hover:underline transition-all duration-200 ease-in-out"
         >
           Projects
         </Link>
         <Link
           href="/resume"
-          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+          className="text-gray-700 hover:text-[#F7AB0A] hover:underline transition-all duration-200 ease-in-out"
         >
           Resume
         </Link>
         <Link
           href="/posts"
-          className="text-gray-700 hover:underline transition-all duration-200 ease-in-out"
+          className="text-gray-700 hover:text-[#F7AB0A] hover:underline transition-all duration-200 ease-in-out"
         >
           Blog
         </Link>
