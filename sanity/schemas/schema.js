@@ -7,6 +7,7 @@ import skill from "./skill";
 import project from "./project";
 import blogPost from "./blogPost";
 import author from "./author";
+import resume from "./resume";
 
 export default createSchema({
   name: "default",
@@ -18,5 +19,6 @@ export default createSchema({
     skill,
     project,
     author,
+    resume,
   ]),
 });

@@ -1,8 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { fetchResume } from "../utils/fetchResume";
 
-const Resume = () => {
+type ResumeProps = {
+  resumeUrl: string;
+};
+
+const Resume = ({ resumeUrl }: ResumeProps) => {
   return (
     <div className="bg-white text-gray-800 min-h-screen flex flex-col">
       <Header />
@@ -16,7 +21,7 @@ const Resume = () => {
         </p>
 
         <a
-          href="/Luke_MathewsPatience.pdf" // Replace with the actual path to your resume
+          href={resumeUrl}
           download
           className="inline-block px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow hover:bg-orange-600 transition duration-300"
         >
@@ -27,6 +32,17 @@ const Resume = () => {
       <Footer />
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const resumeUrl = await fetchResume();
+
+  return {
+    props: {
+      resumeUrl,
+    },
+    revalidate: 60, // Optional: Regenerate the page every 60 seconds
+  };
 };
 
 export default Resume;
