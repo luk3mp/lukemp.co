@@ -9,6 +9,7 @@ import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
 import { PageInfo, Experience, Project, Skill, Social } from "../typings";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
